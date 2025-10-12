@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 
 #objetivo, recuperar  las quotes mediante el tag y recuperar tambien las de las demas paginas
 
-
 URLBASE = "https://quotes.toscrape.com"
 page = requests.get(URLBASE)
 numberPage= 1
