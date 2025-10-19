@@ -1,7 +1,8 @@
 import os
+from dotenv import load_dotenv 
+
 import mysql.connector
 from mysql.connector import errorcode
-from dotenv import load_dotenv 
 
 def getConection():
     try:
