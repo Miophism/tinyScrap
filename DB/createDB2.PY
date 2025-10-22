@@ -16,7 +16,7 @@ def getConection():
         )
         
         return connection,"Conexion exitosa"      
-   
+
     except mysql.connector.Error as err:
         match err.errno: 
             case 1045: 

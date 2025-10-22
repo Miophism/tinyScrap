@@ -1,70 +1,38 @@
-import kagglehub
-from kagglehub import KaggleDatasetAdapter
-
-# Set the path to the file you'd like to load
-file_path = ""
-
-# Load the latest version
-df = kagglehub.load_dataset(
-  KaggleDatasetAdapter.PANDAS,
-  "ahrnishpdahal/gymshark-products-dataset",
-  file_path,
-  # Provide any additional arguments like 
-  # sql_query or pandas_kwargs. See the 
-  # documenation for more information:
-  # https://github.com/Kaggle/kagglehub/blob/main/README.md#kaggledatasetadapterpandas
-)
-
-print("First 5 records:", df.head())
-
-
-#para ver la estructura de los datos
 import pandas as pd
-
-df = pd.read_csv("gymshark_products.csv")
-print(df.head())  # primeras filas
-print(df.columns)  # nombres de columnas
+dataProducts =  pd.read_csv("gymshark_products.csv")
 
 
+# print (dataProducts)
+#Trae  las primeras y las últimas 5 filas 
+# print (dataProducts.head(10))
 
-# import os
-# import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+#Quiero ver las primeras 8 filas de un pandas DataFrame
+# print (dataProducts.tail(8))
 
-# df = pd.read_csv("gymshark_products.csv")
+#Para evr los tipos de columnas 
+# print(dataProducts.dtypes)
 
-# # Tipos de productos
-# plt.figure(figsize=(8,5))
-# df['product_type'].value_counts().plot(kind='bar', color='skyblue')
-# plt.title("Cantidad de productos por tipo")
-# plt.xlabel("Tipo de producto")
-# plt.ylabel("Cantidad")
-# plt.show()
-
-# # Distribución de precios
-# plt.figure(figsize=(7,5))
-# sns.histplot(df['price'], bins=20, kde=True)
-# plt.title("Distribución de precios")
-# plt.show()
+#Conversion de cvs a excel
+# dataProducts.to_excel("titanic.xlsx", sheet_name="passengers", index=False)
 
 
+#resumen tcnico del archivo
+# dataProducts.info()
 
-# avg_price = df.groupby('product_type')['price'].mean().sort_values(ascending=False)
-
-# plt.figure(figsize=(8,5))
-# avg_price.plot(kind='bar', color='coral')
-# plt.title("Precio promedio por tipo de producto")
-# plt.ylabel("Precio promedio ($)")
-# plt.xlabel("Tipo de producto")
-# plt.show()
+#Instalcion de depenencia 
+# pip install openpyxl
 
 
-# top_10 = df[['title', 'price']].sort_values(by='price', ascending=False).head(10)
-# plt.figure(figsize=(10,5))
-# sns.barplot(x='price', y='title', data=top_10, palette='viridis')
-# plt.title("Top 10 productos más caros")
-# plt.xlabel("Precio ($)")
-# plt.ylabel("Producto")
-# plt.show()
+# Seleccion especifica de un datarfame 
+# print(type(dataProducts["tags"]))
+# pandas.core.series.Series
 
+#seleccion de varias columns 
+# dataBasic= dataProducts[["title","product_type"]]
+# print(dataBasic.head())
+
+#ver el tipo de datos de varias olumnas
+
+# print(type(dataProducts[["title", "product_type"]]))
+
+dataProducts[["tile", "product_type"]].shape
